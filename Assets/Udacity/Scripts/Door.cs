@@ -7,6 +7,9 @@ public class Door : MonoBehaviour
     // Create a boolean value called "locked" that can be checked in OnDoorClicked() 
     // Create a boolean value called "opening" that can be checked in Update() 
 
+    private bool locked = true;
+    private bool opening = false;
+
     void Update() {
         // If the door is opening and it is not fully raised
             // Animate the door raising up
@@ -14,13 +17,22 @@ public class Door : MonoBehaviour
 
     public void OnDoorClicked() {
         // If the door is clicked and unlocked
-            // Set the "opening" boolean to true
+        // Set the "opening" boolean to true
         // (optionally) Else
-            // Play a sound to indicate the door is locked
+        // Play a sound to indicate the door is locked
+
+        if (!locked)
+        {
+            opening = true;
+        } else
+        {
+
+        }
     }
 
     public void Unlock()
     {
+        locked = false;
         // You'll need to set "locked" to false here
     }
 }
